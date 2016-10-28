@@ -53,7 +53,7 @@ export default class Form extends Component {
         const length = validations.length;
 
         for (let i = 0; i < length; i += 1) {
-            if (!rules[validations[i]].rule(component.state.value, this.components)) {
+            if (!rules[validations[i]].rule(component.state.value, component, this)) {
                 /* eslint-disable */
                 prev[name] = prev[name] || [];
                 prev[name].push(validations[i]);
