@@ -3,11 +3,13 @@ import noop from './../../utils/noop';
 
 class Base extends Component {
     componentWillReceiveProps(nextProps) {
-        if (nextProps.value !== this.props.value) {
+        if (nextProps.value !== this.props.value
+            || nextProps.validations !== this.props.validations) {
             this.setState({
                 value: nextProps.value,
                 isChanged: true
             }, () => {
+                this.context.register(this);
                 this.context.validateState(this.props.name);
             });
         }
@@ -51,6 +53,7 @@ class Base extends Component {
 
 Base.propTypes = {
     value: PropTypes.string.isRequired,
+    validations: PropTypes.arrayOf(PropTypes.string),
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     onBlur: PropTypes.func
