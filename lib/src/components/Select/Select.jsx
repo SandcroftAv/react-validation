@@ -16,7 +16,7 @@ export default class Select extends Base {
         unregister: PropTypes.func.isRequired,
         validateState: PropTypes.func.isRequired,
         components: PropTypes.objectOf(PropTypes.any),
-        errors: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string))
+        errors: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.node))
     };
 
     constructor(props, context) {
