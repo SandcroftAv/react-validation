@@ -3,15 +3,15 @@ import noop from './../../utils/noop';
 
 class Base extends Component {
     componentWillReceiveProps(nextProps) {
-        if (nextProps.value !== this.props.value
-            || nextProps.validations !== this.props.validations) {
+        if (nextProps.value !== this.props.value) {
             this.setState({
                 value: nextProps.value,
                 isChanged: true
             }, () => {
-                this.context.register(this);
                 this.context.validateState(this.props.name);
             });
+        } else if (nextProps.validations !== this.props.validations) {
+            this.context.validateState(this.props.name);
         }
     }
 
