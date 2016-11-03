@@ -6,7 +6,8 @@ class Base extends Component {
         value: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         onChange: PropTypes.func,
-        onBlur: PropTypes.func
+        onBlur: PropTypes.func,
+        validations: PropTypes.arrayOf(PropTypes.any)
     };
 
     static contextTypes = {
