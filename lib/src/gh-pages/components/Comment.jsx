@@ -7,7 +7,7 @@ export default class Comment extends Component {
 
         // Emulate async API call
         setTimeout(() => {
-            this.form.showError('username', 'api');
+            this.form.showError('username', (value) => <span>Errors with {value}</span>);
         }, 1000);
     };
 
@@ -28,6 +28,7 @@ export default class Comment extends Component {
                         <Validation.components.Input
                           onFocus={this.removeApiError}
                           onChange={event => console.log(event.target.value)}
+                          onBlur={event => console.log(event.target.value)}
                           placeholder="username"
                           type="text"
                           errorClassName="is-invalid-input"
