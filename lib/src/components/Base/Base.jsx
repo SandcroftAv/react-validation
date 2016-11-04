@@ -6,8 +6,7 @@ class Base extends Component {
         value: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         onChange: PropTypes.func,
-        onBlur: PropTypes.func,
-        validations: PropTypes.arrayOf(PropTypes.any)
+        onBlur: PropTypes.func
     };
 
     static contextTypes = {
@@ -26,8 +25,6 @@ class Base extends Component {
             }, () => {
                 this.context.validateState(this.props.name);
             });
-        } else if (nextProps.validations !== this.props.validations) {
-            this.context.validateState(this.props.name);
         }
     }
 
